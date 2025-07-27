@@ -1,0 +1,96 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient( wheat, black, gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    border-radius: 3px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2.5rem;
+    border: 1px solid rgb(0, 0, 0);
+    outline: none;
+    background-color: rgba(63, 243, 63, 0.192);
+    transition: background-color 0.2s;
+}
+
+.calculator-grid > button:hover {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+
+.span-two {
+    grid-column: span 2;
+}
+
+
+button[data-operator] {
+    background-color: #1aa08e;
+    color: white;
+}
+
+button[data-operator]:hover {
+    background-color: #4b4945;
+}
+
+/* Equals Button Styling */
+button[data-equals] {
+    background-color: #000000;
+    color: white;
+}
+
+button[data-equals]:hover {
+    background-color: #3395FF;
+}
+
+/* Display Screen Styling */
+.output {
+    grid-column: 1 / -1; 
+    background-color: rgba(0, 0, 0, .75);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 25px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.previous-operand {
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+
+.current-operand {
+    color: white;
+    font-size: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 450px) {
+    .calculator-grid {
+        grid-template-columns: repeat(4, 80px);
+        grid-template-rows: minmax(100px, auto) repeat(5, 80px);
+    }
+    .calculator-grid > button {
+        font-size: 1.5rem;
+    }
+}
